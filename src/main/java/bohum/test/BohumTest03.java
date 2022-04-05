@@ -13,6 +13,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -20,7 +26,7 @@ public class BohumTest03 {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*한 페이지 결과 수*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("2", "UTF-8")); /*한 페이지 결과 수*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지 번호*/
         urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*결과형식(xml/json)*/
         urlBuilder.append("&" + URLEncoder.encode("age","UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /*나이*/       
@@ -43,12 +49,102 @@ public class BohumTest03 {
         rd.close();
         conn.disconnect();
         System.out.println(sb.toString());
+        
+        String myData = sb.toString();
+        JSONParser parser = new JSONParser();
+        try {
+        	JSONObject obj = (JSONObject)parser.parse(myData);
+
+        	JSONObject jsonObj = (JSONObject)obj;
+        	JSONObject jsonResponse = (JSONObject)jsonObj.get("response");
+        	JSONObject jsonBody = (JSONObject)jsonResponse.get("body");
+        	JSONObject jsonItems = (JSONObject)jsonBody.get("items");
+        	JSONArray jsonItem = (JSONArray)jsonItems.get("item");
+        	for(int i=0;i<jsonItem.size();i++) {
+        		JSONObject item = (JSONObject)jsonItem.get(i);
+        		System.out.println("age : "+item.get("age"));
+        		System.out.println("mlInsRt : "+item.get("mlInsRt"));
+        		System.out.println("fmlInsRt : "+item.get("fmlInsRt"));
+        	}
+
+        } catch (ParseException e) {
+        	// TODO Auto-generated catch block
+        	e.printStackTrace();
+        }
+
+        
     }
 }
 
+/*
+{
+  "header": {
+    "resultCode": "string",
+    "resultMsg": "string"
+  },
+  "body": {
+    "numOfRows": 0,
+    "pageNum": 0,
+    "totalCount": 0,
+    "items": {
+      "item": [
+        {
+          "basDt": "string",
+          "cmpyCd": "string",
+          "cmpyNm": "string",
+          "ptrn": "string",
+          "mog": "string",
+          "prdNm": "string",
+          "age": "string",
+          "mlInsRt": "string",
+          "fmlInsRt": "string"
+        },
+        {
+          "basDt": "string",
+          "cmpyCd": "string",
+          "cmpyNm": "string",
+          "ptrn": "string",
+          "mog": "string",
+          "prdNm": "string",
+          "age": "string",
+          "mlInsRt": "string",
+          "fmlInsRt": "string"
+        }
+      ]
+    }
+  }
+}
+ */
 
+/*
+basDt	string
+YYYYMMDD
+기준일자
 
+cmpyCd	string
+회사코드
 
+cmpyNm	string
+회사명
+
+ptrn	string
+유형
+
+mog	string
+담보
+
+prdNm	string
+상품명
+
+age	string
+연령
+
+mlInsRt	string
+남자보험료
+
+fmlInsRt	string
+여자보험료 
+ */
 
 
 
