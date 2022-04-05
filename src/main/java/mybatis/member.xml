@@ -66,4 +66,8 @@
   		select password from members where id=#{id} and name=#{name} and regi_number1=#{regi_number1} and regi_number2=#{regi_number2}
   	</select>
 	
+	<insert id="InsertMember">
+		insert into members(userDetail, id, name, password, regi_number1, regi_number2, phone1, phone2, phone3, email1, email2, userState)
+		values (userDetails_seq.nextval, #{id}, #{name}, #{password}, #{regi_number1}, #{regi_number2}, #{phone1}, #{phone2}, #{phone3}, #{email1}, #{email2},#{userState)
+	</insert>
   </mapper>

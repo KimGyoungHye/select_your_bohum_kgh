@@ -29,5 +29,10 @@ public class CompanyDao {
 		cnt = sqlSessionTemplate.insert(namespace+".InsertCompany", bean);
 		return cnt;
 	}
-	
+	public CompanyBean getCompany(int cnum) {
+		CompanyBean companyBean = sqlSessionTemplate.selectOne(namespace+".GetCompany", cnum);
+		System.out.println("cname:" + companyBean.getCname());
+		
+		return companyBean;
+	}
 }

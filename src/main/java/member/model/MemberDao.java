@@ -57,5 +57,11 @@ public class MemberDao {
 		System.out.println("pw:" + pw);
 		return pw;
 	}
-
+	
+	public int insertMember(MemberBean member) {
+		int cnt=-1;
+		cnt=sqlSessionTemplate.insert(namespace+".InsertMember",member);
+		System.out.println("insertDao cnt:" + cnt);
+		return cnt;
+	}
 }

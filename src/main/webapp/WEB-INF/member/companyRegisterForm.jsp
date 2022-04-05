@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/common/common_top.jsp" %>
-
-companyRegisterForm.jsp<br>
-  
+<%@include file="/WEB-INF/top_bottom/main_top.jsp"%>
 <style type="text/css">
 	.err{
 	font-size: 9pt;
@@ -14,6 +9,16 @@ companyRegisterForm.jsp<br>
 	}
 </style> 
 
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 checkContainer">
+		<h3>companyRegisterForm.jsp</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 checkContainer">
+  
+
+ 
 <h2>보험사 회원 가입 화면</h2>
 
 	사업자 정보 입력
@@ -26,11 +31,11 @@ companyRegisterForm.jsp<br>
 >>이러면 테이블에 사업자 등록번호 추가 안해도 되고,
 >>
 
-<form method="post" action="search_corp_num.mem">
+<form method="post" action="search_corp_num.cp">
 	<div>
 		<p>
-			<label for="corp_number1">사업자등록번호</label>
-			<input type="text" name="corp_num" id="corp_num" value="" size="10">
+			<label for="cnum">사업자등록번호</label>
+			<input type="text" name="cnum" id="cnum" value="" size="10">
 			<input type="submit" value="조회">
 		</p>	
 	</div>
@@ -38,15 +43,14 @@ companyRegisterForm.jsp<br>
 
 	
 <form:form commandName="member" method="post" action="companyRegister.mem"> 
-	<input type="hidden" name="userState" id="userState" value="보험자">
-
-	
+	<input type="hidden" name="userState" id="userState" value="회사">
+	<input type="hidden" name="company" value="${num }" >
 	<div>	
 		<p>
 			<label for="name">회사명</label>
-			<input type="text" name="company" id="company" value="조회하면 회사명 자동으로 뜨게?하는거 값을
-												 세션으로 넣어야지 페이지 에러나도 그대로 나올 것 같아요..!
-												 대신 회원 가입 후에는 지정해서 지워주는 걸로..!">
+			<input type="text" value="${cname }">
+			<!-- 조회하면 회사명 자동으로 뜨게?하는거 값을 세션으로 넣어야지 페이지 에러나도 그대로 나올 것 같아요..! 
+			대신 회원 가입 후에는 지정해서 지워주는 걸로..! -->
 		</p>
 	</div>	
 	<hr>
@@ -59,6 +63,8 @@ companyRegisterForm.jsp<br>
 		<p>
 			<label for="id">아이디</label>
 			<input type="text" name="id" id="id" value="lee">
+<!-- 			<input type="button" id="id_check" value="중복체크" onClick="duplicates()"><br>
+				<span id="du_message"><font size=1.5>*중복체크를 해주세요.</font></span> -->
 			<form:errors cssClass="err" path="id" />
 		</p>
 		<p>
@@ -91,3 +97,7 @@ companyRegisterForm.jsp<br>
 			<input type="submit" value="가입하기" >		
 		</p>
 	</form:form>
+	</div>
+	</div>
+<%@include file="/WEB-INF/top_bottom/main_bottom.jsp"%>
+	

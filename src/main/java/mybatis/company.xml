@@ -11,4 +11,8 @@
  		insert into cinfo(cnum,cname,cimage,cadmin)
  		values(cinfo_seq.nextval,#{cname},#{cimage},#{cadmin})
  	</insert>
+ 	
+ 	<select id="GetCompany" resultType="MyCompany">
+		select cname from cinfo where cnum= #{cnum}
+	</select>
   </mapper>
