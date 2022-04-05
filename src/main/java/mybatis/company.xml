@@ -6,4 +6,9 @@
 	<select id="GetCompanyList" resultType="MyCompany">
 		select * from cinfo order by cnum
 	</select>
+	
+	<insert id="InsertCompany">
+ 		insert into cinfo(cnum,cname,cimage,cadmin)
+ 		values(cinfo_seq.nextval,#{cname},#{cimage},#{cadmin})
+ 	</insert>
   </mapper>

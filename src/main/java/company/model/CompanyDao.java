@@ -20,4 +20,14 @@ public class CompanyDao {
 		return companyList;
 	}
 	
+	public int insertCompany(CompanyBean bean) {
+		int cnt = -1;
+		System.out.println("getCadmin"+bean.getCadmin());
+		System.out.println("getCname"+bean.getCname());
+		System.out.println("getUpload"+bean.getUpload().getOriginalFilename());
+		System.out.println("getCimage"+bean.getCimage());
+		cnt = sqlSessionTemplate.insert(namespace+".InsertCompany", bean);
+		return cnt;
+	}
+	
 }

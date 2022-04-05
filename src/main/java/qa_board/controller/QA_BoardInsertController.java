@@ -54,6 +54,7 @@ public class QA_BoardInsertController {
 			BindingResult result,
 			HttpServletRequest request,
 			HttpSession session) {
+		System.out.println(qA_BoardBean.getPassword());
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
 		if(loginInfo==null) {
 			session.setAttribute("destination", "redirect:/insert.qa");

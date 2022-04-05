@@ -1,11 +1,15 @@
 package company.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CompanyBean {
 	private int cnum;
 	private String cname;
 	private String cimage;
 	private String cinsurance;
 	private String cadmin;
+	private MultipartFile upload;
+
 	public CompanyBean() {
 		super();
 	}
@@ -46,5 +50,12 @@ public class CompanyBean {
 	}
 	public void setCadmin(String cadmin) {
 		this.cadmin = cadmin;
+	}
+	public MultipartFile getUpload() {
+		return upload;
+	}
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+		setCimage(upload.getOriginalFilename());
 	}
 }
