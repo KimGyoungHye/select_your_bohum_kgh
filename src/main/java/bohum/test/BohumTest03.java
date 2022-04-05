@@ -6,7 +6,7 @@ package bohum.test;
 // 한글 깨짐 어케 해결하지
 // json 어케 다루지??
 // 그래도 데이터 파싱은 되어따!!!!!!!!!!!!!!!!!!!!!!
-// 끼에에에에에에에ㅔ에에에ㅔㄲ
+// 끼에에에에에에에ㅔ에에에ㅔㄲ 
 
 
 import java.io.InputStreamReader;
