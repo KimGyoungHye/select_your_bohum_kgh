@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="company.model.CompanyBean" alias="MyCompany"/>
+		<typeAlias type="qa_board.model.QA_BoardBean" alias="MyQA_Board"/>
+		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
+		<typeAlias type="memberDetail.model.MemberDetailBean" alias="MyMemberDetail"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/company.xml" />
+		<mapper resource="mybatis/qa_board.xml" />
+		<mapper resource="mybatis/member.xml" />
+		<mapper resource="mybatis/memberDetail.xml" />
+	</mappers>
+</configuration>

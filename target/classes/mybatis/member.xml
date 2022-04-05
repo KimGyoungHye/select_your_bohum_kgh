@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="member.MemberBean">
+  
+  	<select id="GetTotalCount" resultType="int">
+  		select count(*) from members
+  		<if test="whatColumn=='id'">
+				where upper(id) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='userState'">
+	 			where upper(userState) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='companyInfo'">
+	 			where upper(companyInfo) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='all'">
+	 			where upper(id) like #{keyword}
+				or upper(userState) like #{keyword}
+				or upper(companyInfo) like #{keyword}
+	 		</if>
+  	</select>
+  	
+  	<select id="GetMemberList" resultType="MyMember">
+		select * from members
+			<if test="whatColumn=='id'">
+				where upper(id) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='userState'">
+	 			where upper(userState) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='companyInfo'">
+	 			where upper(companyInfo) like #{keyword}
+	 		</if>
+	 		
+	 		<if test="whatColumn=='all'">
+	 			where upper(id) like #{keyword}
+				or upper(userState) like #{keyword}
+				or upper(companyInfo) like #{keyword}
+	 		</if>
+	</select>
+  
+	<select id="GetMember" resultType="MyMember">
+		select * from members where id=#{id}
+	</select>
+	
+	<select id="GetMemberKakao" resultType="MyMember">
+		select * from members where email1=#{email1} and email2=#{email2}
+	</select>
+	
+	<update id="UserStateUpdate">
+		update members set userState=#{userState} where id=#{id}
+	</update>
+	
+	<select id="GetIdByName" resultType="String">
+  		select id from members where name=#{name} and regi_number1=#{regi_number1} and regi_number2=#{regi_number2}
+  	</select>
+  	
+  	<select id="GetPwById" resultType="String">
+  		select password from members where id=#{id} and name=#{name} and regi_number1=#{regi_number1} and regi_number2=#{regi_number2}
+  	</select>
+	
+  </mapper>
