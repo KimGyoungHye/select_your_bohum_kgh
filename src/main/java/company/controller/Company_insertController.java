@@ -46,12 +46,6 @@ public class Company_insertController {
 			 HttpServletRequest request
 			 ) {
 		 ModelAndView mav = new ModelAndView();
-
-		Enumeration names = request.getParameterNames();
-		while(names.hasMoreElements()) {
-			String key = (String) names.nextElement();
-			System.out.println("MY!!"+key + ": " + request.getParameter(key));
-		}
 		System.out.println("doAction.POST µµÂø");
 		System.out.println("getCname : "+bean.getCname());
 		System.out.println("getCadmin : "+bean.getCadmin());
