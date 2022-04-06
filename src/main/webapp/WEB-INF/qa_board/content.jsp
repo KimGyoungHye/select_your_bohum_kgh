@@ -1,6 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/top_bottom/main_top.jsp"%>
+<script type="text/javascript">
+	function downLoad(fileName) {
+		alert("+"+fileName+"+");
+		if(fileName==""){
+			alert('첨부파일이 없습니다.');
+			return;
+		}
+		alert(4);
+	}
+</script>
+
 <div class="row">
 	<div class="col-md-offset-1 col-md-10 checkContainer">
 		<table class="table table-bordered">
@@ -37,6 +48,7 @@
 						첨부파일 없음
 					</c:if>
 					${qA_BoardBean.image}
+					<input type="button" onclick="downLoad('${qA_BoardBean.image}')">
 				</td>
 			</tr>
 			<tr align="center" height="30">
