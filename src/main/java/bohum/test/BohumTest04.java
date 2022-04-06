@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class BohumTest03 {
+public class BohumTest04 {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
@@ -62,9 +62,7 @@ public class BohumTest03 {
         	JSONArray jsonItem = (JSONArray)jsonItems.get("item");
         	for(int i=0;i<jsonItem.size();i++) {
         		JSONObject item = (JSONObject)jsonItem.get(i);
-        		System.out.println("age : "+item.get("age"));
-        		System.out.println("mlInsRt : "+item.get("mlInsRt"));
-        		System.out.println("fmlInsRt : "+item.get("fmlInsRt"));
+        		String age = (String) item.get("age");
         	}
 
         } catch (ParseException e) {

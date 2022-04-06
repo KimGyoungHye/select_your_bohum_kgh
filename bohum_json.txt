@@ -1,0 +1,66 @@
+
+/*
+{
+  "header": {
+    "resultCode": "string",
+    "resultMsg": "string"
+  },
+  "body": {
+    "numOfRows": 0,
+    "pageNum": 0,
+    "totalCount": 0,
+    "items": {
+      "item": [
+        {
+          "basDt": "string",
+          "cmpyCd": "string",
+          "cmpyNm": "string",
+          "ptrn": "string",
+          "mog": "string",
+          "prdNm": "string",
+          "age": "string",
+          "mlInsRt": "string",
+          "fmlInsRt": "string"
+        },
+        {
+          "basDt": "string",
+          "cmpyCd": "string",
+          "cmpyNm": "string",
+          "ptrn": "string",
+          "mog": "string",
+          "prdNm": "string",
+          "age": "string",
+          "mlInsRt": "string",
+          "fmlInsRt": "string"
+        }
+      ]
+    }
+  }
+}
+ */
+
+/*basDt	string
+YYYYMMDD 기준일자
+
+cmpyCd string 회사코드
+
+cmpyNm string 회사명
+
+ptrn string 유형
+
+mog	string 담보
+
+prdNm string 상품명
+
+age	string 연령
+
+mlInsRt	string 남자보험료
+
+fmlInsRt string 여자보험료
+ */
+
+
+
+
+
+

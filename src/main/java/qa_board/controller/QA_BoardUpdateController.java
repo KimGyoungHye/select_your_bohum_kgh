@@ -59,7 +59,7 @@ public class QA_BoardUpdateController {
 		}
 			QA_BoardBean article2 = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
 			if(!article2.getPassword().equals(qA_BoardBean.getPassword())) {
-				alerting.useAlert("ºñ¹Ğ¹øÈ£ ºÒÀÏÄ¡");
+				alerting.useAlert("ë¹„ë°€ë²ˆí˜¸ ë¶ˆì¼ì¹˜");
 				request.setAttribute("pageNumber", pageNumber);
 				return getPage;
 			}else {
@@ -77,8 +77,8 @@ public class QA_BoardUpdateController {
 							try {
 								multi.transferTo(file);
 								if(org_image!=null) {
-									//ÆÄÀÏ Áö¿ì´Â°Å »©¸ÔÀ½..!
-									//!!!!!!!!!Ãß°¡ÇÏ±â!!!!!!!!!!!!
+									//íŒŒì¼ ì§€ìš°ëŠ”ê±° ë¹¼ë¨¹ìŒ..!
+									//!!!!!!!!!ì¶”ê°€í•˜ê¸°!!!!!!!!!!!!
 								}
 							} catch (IllegalStateException e) {
 								e.printStackTrace();

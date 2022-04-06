@@ -22,7 +22,7 @@ import org.json.simple.parser.ParseException;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-public class BohumTest03 {
+public class BohumTest03_01 {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
@@ -62,9 +62,15 @@ public class BohumTest03 {
         	JSONArray jsonItem = (JSONArray)jsonItems.get("item");
         	for(int i=0;i<jsonItem.size();i++) {
         		JSONObject item = (JSONObject)jsonItem.get(i);
-        		System.out.println("age : "+item.get("age"));
-        		System.out.println("mlInsRt : "+item.get("mlInsRt"));
-        		System.out.println("fmlInsRt : "+item.get("fmlInsRt"));
+        		System.out.println("basDt : "+item.get("basDt"));//YYYYMMDD 기준일자
+        		System.out.println("cmpyCd : "+item.get("cmpyCd"));// 회사코드
+        		System.out.println("cmpyNm : "+item.get("cmpyNm"));// 회사명
+        		System.out.println("ptrn : "+item.get("ptrn"));//	유형
+        		System.out.println("mog : "+item.get("mog"));// 담보
+        		System.out.println("prdNm : "+item.get("prdNm"));// 상품명
+        		System.out.println("age : "+item.get("age"));// 연령
+        		System.out.println("mlInsRt : "+item.get("mlInsRt"));// 남자보험료
+        		System.out.println("fmlInsRt : "+item.get("fmlInsRt"));// 여자보험료
         	}
 
         } catch (ParseException e) {
