@@ -93,13 +93,9 @@ public class QA_BoardReplyController {
 		qA_BoardBean.setReg_date(String.valueOf(reg_date));
 		qA_BoardBean.setIp(ip);
 		
-		//qandADao.replyQandA(boardBean);
-//		responsing.useAlert("己傍");
-//		responsing.useRedirect("list.qa");
-		
 		int cnt = qA_BoardDao.ReplyQA_Board(qA_BoardBean);
 		if(!(cnt<0)) {
-			responsing.useAlert("己傍");
+			responsing.useAlert("靹标车");
 			String image = qA_BoardBean.getImage();
 			if(image!=null) {
 				int cnt2 = qA_BoardDao.insertQA_Board(qA_BoardBean);
@@ -120,7 +116,7 @@ public class QA_BoardReplyController {
 			}
 			responsing.useRedirect("list.qa");
 		}else {
-			responsing.useAlert("角菩");
+			responsing.useAlert("鞁ろ尐");
 			responsing.useRedirect("list.qa");
 		}
 		return gotoPage;

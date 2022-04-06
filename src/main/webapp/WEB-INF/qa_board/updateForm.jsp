@@ -5,17 +5,24 @@
 <div class="row">
 	<div class="col-md-offset-1 col-md-10 checkContainer">
 
-		<form:form method="post" commandName="QA_BoardBean"
+		<form:form method="post" commandName="QA_BoardBean" enctype="multipart/form-data" 
 			action="update.qa">
 			<input type="text" name="pageNumber" value="${pageNumber}">
 			<input type="text" name="no" value="${QA_BoardBean.no}">
 			<input type="text" name="company" value="${QA_BoardBean.company}">
 			<input type="text" name="category" value="${QA_BoardBean.category}">
 			<input type="text" name="writer" value="${QA_BoardBean.writer}">
+			
 			<table class="table table-bordered">
 				<tr>
 					<td colspan="2" align="right"><a href="list.qa">글목록</a></td>
 					<td align="center">에러여부</td>
+				</tr>
+				<tr>
+					<td><form:errors path="no" cssClass="err" /></td>
+					<td><form:errors path="company" cssClass="err" /></td>
+					<td><form:errors path="category" cssClass="err" /></td>
+					<td><form:errors path="writer" cssClass="err" /></td>
 				</tr>
 
 				<tr>
@@ -36,7 +43,8 @@
 				
 				<tr>
 					<td align="center">첨부파일</td>
-					<td><input type="file" name="image" class="form-control"></td>
+					<td><input type="file" name="upload"
+						class="form-control"></td>
 					<td><form:errors path="image" cssClass="err" /></td>
 				</tr>
 

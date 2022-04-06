@@ -28,7 +28,7 @@ public class QA_BoardUpdateController {
 
 	@Autowired
 	QA_BoardDao qA_BoardDao;
-	
+
 	@Autowired
 	ServletContext servletContext;
 
@@ -38,7 +38,7 @@ public class QA_BoardUpdateController {
 			HttpServletRequest request) {
 
 		QA_BoardBean qA_boardBean = qA_BoardDao.getArticle(no);
-		
+
 		System.out.println("no : "+qA_boardBean.getNo());
 		request.setAttribute("QA_BoardBean", qA_boardBean);
 		request.setAttribute("pageNumber", pageNumber);
@@ -57,40 +57,46 @@ public class QA_BoardUpdateController {
 			request.setAttribute("pageNumber", pageNumber);
 			return getPage;
 		}
-			QA_BoardBean article2 = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
-			if(!article2.getPassword().equals(qA_BoardBean.getPassword())) {
-				alerting.useAlert("비밀번호 불일치");
-				request.setAttribute("pageNumber", pageNumber);
-				return getPage;
-			}else {
-				QA_BoardBean org_qA_BoardBean = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
-				String org_image = org_qA_BoardBean.getImage();
-				int cnt = qA_BoardDao.updateBoard(qA_BoardBean);
-				if(cnt>0) {
-					String image = qA_BoardBean.getImage();
-					if(image!=null) {
-						int cnt2 = qA_BoardDao.insertQA_Board(qA_BoardBean);
-						if(cnt2>0) {
-							String uploadPath = servletContext.getRealPath("/resources/qa_board/QA_BoardFiles");
-							File file = new File(uploadPath+"\\"+image);
-							MultipartFile multi = qA_BoardBean.getUpload();
-							try {
-								multi.transferTo(file);
-								if(org_image!=null) {
-									//파일 지우는거 빼먹음..!
-									//!!!!!!!!!추가하기!!!!!!!!!!!!
-								}
-							} catch (IllegalStateException e) {
-								e.printStackTrace();
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
+		//alerting.useAlert("에러는 안 남");
+		QA_BoardBean article2 = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
+		if(!article2.getPassword().equals(qA_BoardBean.getPassword())) {
+			alerting.useAlert("비밀번호 불일치");
+			request.setAttribute("pageNumber", pageNumber);
+			return getPage;
+		}else {
+			//alerting.useAlert("파일 업로드");
+			QA_BoardBean org_qA_BoardBean = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
+			String org_image = org_qA_BoardBean.getImage();
+			String image = qA_BoardBean.getImage();
+			if(image==null) {
+				qA_BoardBean.setImage(org_image);
+			}
+			int cnt = qA_BoardDao.updateBoard(qA_BoardBean);
+			if(cnt>0) {
+				System.out.println("org_image"+org_image);
+				System.out.println("qA_BoardBean.getImage()"+qA_BoardBean.getImage());
+
+				if(image!=null) {
+					String uploadPath = servletContext.getRealPath("/resources/qa_board/QA_BoardFiles");
+					File file = new File(uploadPath+"\\"+image);
+					MultipartFile multi = qA_BoardBean.getUpload();
+					try {
+						multi.transferTo(file);
+						if(org_image!=null) {
+							//파일 지우는거 빼먹음..!
+							//!!!!!!!!!추가하기!!!!!!!!!!!!
 						}
+					} catch (IllegalStateException e) {
+						e.printStackTrace();
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
 					return gotoPage;
 				}
 			}
-		request.setAttribute("pageNumber", pageNumber);
-		return getPage;
+			request.setAttribute("pageNumber", pageNumber);
+			return getPage;
+
+		}
 	}
 }
