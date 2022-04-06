@@ -66,11 +66,10 @@ public class QA_BoardUpdateController {
 		}else {
 			//alerting.useAlert("파일 업로드");
 			QA_BoardBean org_qA_BoardBean = qA_BoardDao.getArticle(String.valueOf(qA_BoardBean.getNo()));
+			
 			String org_image = org_qA_BoardBean.getImage();
+			System.out.println("org_image"+org_image);
 			String image = qA_BoardBean.getImage();
-			if(image==null) {
-				qA_BoardBean.setImage(org_image);
-			}
 			int cnt = qA_BoardDao.updateBoard(qA_BoardBean);
 			if(cnt>0) {
 				System.out.println("org_image"+org_image);

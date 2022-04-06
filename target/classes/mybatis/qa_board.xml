@@ -46,7 +46,10 @@
 	</insert>
 	
 	<update id="UpdateQA_Board">
-		update qa_board set title=#{title},content=#{content},image=#{image}
+		update qa_board set title=#{title},content=#{content}
+		<if test="image!=null and image!='' and image!='null'">
+	 		,image=#{image}
+	 	</if>
 		where no=#{no}
 	</update>
 	
