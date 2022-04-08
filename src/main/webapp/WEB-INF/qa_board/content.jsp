@@ -8,6 +8,16 @@
 			alert('첨부파일이 없습니다.');
 			return;
 		}
+		$.ajax({
+			 url : "download.qa",
+			data : ({
+				downloadFileName : fileName
+			}),
+			datatype:"json",
+			success : function(data) {
+				alert('downLoad!');
+			}//success 
+		});//ajax
 		alert(4);
 	}
 </script>

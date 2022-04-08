@@ -45,7 +45,7 @@
 					<td align="center">첨부파일</td>
 					<td><input type="file" name="upload"
 						class="form-control"></td>
-					<td><form:errors path="image" cssClass="err" /></td>
+					<td>파일 삭제<input type="checkbox" name="imageFlag" value="noImage"><form:errors path="image" cssClass="err" /></td>
 				</tr>
 
 				<tr>

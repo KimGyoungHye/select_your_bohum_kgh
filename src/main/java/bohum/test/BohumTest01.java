@@ -1,6 +1,6 @@
 package bohum.test;
 
-/* Java 1.8 »ùÇÃ ÄÚµå */
+/* Java 1.8 ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ */
 
 
 import java.io.InputStreamReader;
@@ -11,41 +11,33 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class BohumTest01 {
-    public static void main(String[] args) throws IOException {
-        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetLifeInsuCompInfoService/getLifeInsuCompGeneInfo"); /*URL*/
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÇÑ ÆäÀÌÁö °á°ú ¼ö*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÆäÀÌÁö ¹øÈ£*/
-        urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("xml", "UTF-8")); /*°á°úÇü½Ä(xml/json)*/
-        urlBuilder.append("&" + URLEncoder.encode("title","UTF-8") + "=" + URLEncoder.encode("»ýº¸_ÀÏ¹ÝÇöÈ²_ÀÓÁ÷¿ø ¹× ¼³°è»ç ÇöÈ²", "UTF-8")); /*»ýº¸_ÀÏ¹ÝÇöÈ²*/
-        urlBuilder.append("&" + URLEncoder.encode("basYm","UTF-8") + "=" + URLEncoder.encode("201603", "UTF-8")); /*±âÁØ³â¿ù*/        URL url = new URL(urlBuilder.toString());
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.setRequestProperty("Content-type", "application/json");
-        System.out.println("Response code: " + conn.getResponseCode());
-        BufferedReader rd;
-        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
-            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        } else {
-            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
-        }
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = rd.readLine()) != null) {
-            sb.append(line);
-        }
-        rd.close();
-        conn.disconnect();
-        System.out.println(sb.toString());
-    }
-}
-
-
-
-
-
-
-
-
-
-
+	/* Java 1.8 ìƒ˜í”Œ ì½”ë“œ */
+	    public static void main(String[] args) throws IOException {
+	        StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetLifeInsuCompInfoService/getLifeInsuCompGeneInfo"); /*URL*/
+	        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
+	        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*í•œ íŽ˜ì´ì§€ ê²°ê³¼ ìˆ˜*/
+	        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*íŽ˜ì´ì§€ ë²ˆí˜¸*/
+	        urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("xml", "UTF-8")); /*ê²°ê³¼í˜•ì‹(xml/json)*/
+	        urlBuilder.append("&" + URLEncoder.encode("title","UTF-8") + "=" + URLEncoder.encode("ìƒë³´_ì¼ë°˜í˜„í™©_ìž„ì§ì› ë° ì„¤ê³„ì‚¬ í˜„í™©", "UTF-8")); /*ìƒë³´_ì¼ë°˜í˜„í™©*/
+	        urlBuilder.append("&" + URLEncoder.encode("basYm","UTF-8") + "=" + URLEncoder.encode("201603", "UTF-8")); /*ê¸°ì¤€ë…„ì›”*/
+	        URL url = new URL(urlBuilder.toString());
+	        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	        conn.setRequestMethod("GET");
+	        conn.setRequestProperty("Content-type", "application/json");
+	        System.out.println("Response code: " + conn.getResponseCode());
+	        BufferedReader rd;
+	        if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
+	            rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	        } else {
+	            rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+	        }
+	        StringBuilder sb = new StringBuilder();
+	        String line;
+	        while ((line = rd.readLine()) != null) {
+	            sb.append(line);
+	        }
+	        rd.close();
+	        conn.disconnect();
+	        System.out.println(sb.toString());
+	    }
+	}

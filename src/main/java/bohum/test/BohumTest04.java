@@ -1,12 +1,12 @@
 package bohum.test;
 
-/* Java 1.8 »ùÇÃ ÄÚµå */
+/* Java 1.8 ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ */
 
-// jsonÀ¸·Î °¡Á® ¿Â °Í..!!!!!!!!!!!!!!!!!!1
-// ÇÑ±Û ±úÁü ¾îÄÉ ÇØ°áÇÏÁö
-// json ¾îÄÉ ´Ù·çÁö??
-// ±×·¡µµ µ¥ÀÌÅÍ ÆÄ½ÌÀº µÇ¾îµû!!!!!!!!!!!!!!!!!!!!!!
-// ³¢¿¡¿¡¿¡¿¡¿¡¿¡¿¡¤Ä¿¡¿¡¿¡¤Ä¤¢ 
+// jsonï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½..!!!!!!!!!!!!!!!!!!1
+// ï¿½Ñ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½ï¿½ï¿½ï¿½ï¿½
+// json ï¿½ï¿½ï¿½ï¿½ ï¿½Ù·ï¿½ï¿½ï¿½??
+// ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ï¿½!!!!!!!!!!!!!!!!!!!!!!
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¤ï¿½ 
 
 
 import java.io.InputStreamReader;
@@ -26,10 +26,10 @@ public class BohumTest04 {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("2", "UTF-8")); /*ÇÑ ÆäÀÌÁö °á°ú ¼ö*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ÆäÀÌÁö ¹øÈ£*/
-        urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*°á°úÇü½Ä(xml/json)*/
-        urlBuilder.append("&" + URLEncoder.encode("age","UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /*³ªÀÌ*/       
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("2", "UTF-8")); /*ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½*/
+        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£*/
+        urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(xml/json)*/
+        urlBuilder.append("&" + URLEncoder.encode("age","UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /*ï¿½ï¿½ï¿½ï¿½*/       
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -63,6 +63,7 @@ public class BohumTest04 {
         	for(int i=0;i<jsonItem.size();i++) {
         		JSONObject item = (JSONObject)jsonItem.get(i);
         		String age = (String) item.get("age");
+        		System.out.println("age : "+age);
         	}
 
         } catch (ParseException e) {

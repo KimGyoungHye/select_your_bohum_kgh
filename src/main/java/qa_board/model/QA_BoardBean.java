@@ -25,6 +25,8 @@ public class QA_BoardBean {
 	private int re_level ;
 	private String ip;
 	private MultipartFile upload;
+	private String imageFlag;
+
 
 	public QA_BoardBean() {
 		super();
@@ -138,5 +140,11 @@ public class QA_BoardBean {
 	public void setUpload(MultipartFile upload) {
 		this.upload = upload;
 		setImage(upload.getOriginalFilename());
+	}
+	public String getImageFlag() {
+		return imageFlag;
+	}
+	public void setImageFlag(String imageFlag) {
+		this.imageFlag = imageFlag;
 	}
 }

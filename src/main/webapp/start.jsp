@@ -59,7 +59,7 @@
       <div class="col-md-6"><a href="companyRegister.mem">회사 멤버 추가</a></div>
     </div>
     <div class="row">
-      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6"><a href="test.qa">다운로드 테스트용</a></div>
       <div class="col-md-6">.col-md-6</div>
     </div>
   </div>

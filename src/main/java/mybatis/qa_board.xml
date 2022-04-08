@@ -47,7 +47,7 @@
 	
 	<update id="UpdateQA_Board">
 		update qa_board set title=#{title},content=#{content}
-		<if test="image!=null and image!='' and image!='null'">
+		<if test="image!=null and image!='' and image!='null' or imageFlag='noImage'">
 	 		,image=#{image}
 	 	</if>
 		where no=#{no}
