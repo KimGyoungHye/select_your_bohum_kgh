@@ -55,10 +55,20 @@
 				  />
 				</a>
 				 <form method="post" action="kakaoLogin.mem" id="myForm">
-				 	 <input type="text" id="userinfo" name="userinfo" value="" /> <!-- 유저정보를 저장할 input 엘리먼트 -->
+				 	 <input type="text" id="userinfo" name="userinfo" /> <!-- 유저정보를 저장할 input 엘리먼트 -->
+				 	 <input type="text" id="email1" name="email1" />
+				 	 <input type="text" id="email2" name="email2"  />
 				 </form>
 				<!-- <a href="kakaoTest.mem">로그인테스트</a> -->
-				
+				<!-- {"has_email":true,
+				"email_needs_agreement":false,
+				"is_email_valid":true,
+				"is_email_verified":true,
+				"email":"kimgyhye@naver.com",
+				"has_gender":true,
+				"gender_needs_agreement":false,
+				"gender":"female",
+				"host":"kakao"} -->
 			</div>
 		</div>
 		<div class="row">

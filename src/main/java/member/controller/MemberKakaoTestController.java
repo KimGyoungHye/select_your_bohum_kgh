@@ -39,23 +39,12 @@ public class MemberKakaoTestController {
 	}
 
 	@RequestMapping(value=command,method = RequestMethod.POST)
-	public String doAction(@RequestParam(value = "userinfo", required = false)String userinfo,
+	public String doAction(@RequestParam(value = "email1")String email1,
+			@RequestParam(value = "email2")String email2,
 			HttpSession session,
 			HttpServletResponse response) {
 		
 		Responsing alerting = new Responsing(response);
-		System.out.println("####kakaoInfo####\n" + userinfo);
-		//alerting.useAlert(userinfo);
-		String emailKey = "\"email\":\"";
-		String genderKey = "\",\"has_gender\":";
-		int index_emailKey = userinfo.indexOf(emailKey);
-		int index_genderKey = userinfo.indexOf(genderKey);
-		String userEmail = userinfo.substring(index_emailKey+emailKey.length(),index_genderKey);
-		System.out.println("userEmail : "+userEmail);
-		//ÀÌ°Å´Â µ¥ÀÌÅÍ Ã³¸®ÇÏ´Â°Å ÇÑ¹ø ´Ù½Ã ÇØº¸´Â°Ô ÁÁÀ» °Í °°À½
-		String email1 = userEmail.substring(0,userEmail.indexOf("@"));
-		String email2 = userEmail.substring(userEmail.indexOf("@")+1,userEmail.length());
-		
 		System.out.println(email1+"/"+email2);
 		
 		MemberBean memberBean = new MemberBean();
@@ -65,7 +54,7 @@ public class MemberKakaoTestController {
 		MemberBean searchBean = memberDao.getMemberKakao(memberBean);
 		
 		if(searchBean==null) {
-			alerting.useAlert("µî·ÏµÈ ÀÌ¸ÞÀÏÀÌ ¾ø½À´Ï´Ù");
+			alerting.useAlert("ï¿½ï¿½Ïµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 			return getPage;
 		}else{
 			session.setAttribute("loginInfo", searchBean);
@@ -83,10 +72,6 @@ public class MemberKakaoTestController {
 
 			return destination; //"redirect:/insert.prd"
 		}
-		/*{"has_email":true,"email_needs_agreement":
-		 * false,"is_email_valid":true,"is_email_verified":true,
-		 * "email":"kimgyhye@naver.com","has_gender":true,"gender_needs_agreement":true,"host":"kakao"}
-		 */
 
 	}
 	

@@ -52,7 +52,7 @@ public class Test01 {
 		try {
 			//fileInputStream = new FileInputStream(uploadFolder);
 			//fileInputStream = new FileInputStream(uploadFolder+"/"+fileName);
-			fileInputStream = new FileInputStream(requestFolder+"/"+fileName);
+			fileInputStream = new FileInputStream(uploadFolder+"/"+fileName);
 			OutputStream out = response.getOutputStream();
 
 			int read = 0;

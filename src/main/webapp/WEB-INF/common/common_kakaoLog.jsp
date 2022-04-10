@@ -30,7 +30,24 @@ function kakaoLogin() {
             const userinfo = document.querySelector('#userinfo')
             if (userinfo) userinfo.value = JSON.stringify(user) 
             //user를 json문자열로 변환해서 저장해두기
-    		myFormSubmit();
+            var json = userinfo.value;
+			obj = JSON.parse(json);
+            //myFormSubmit();
+            alert(obj.email_needs_agreement);
+            if(obj.email_needs_agreement==false){
+            	//alert('true');
+            	//alert(obj.email);
+            	const emails = obj.email.split('@');
+            	//alert(emails[0]);
+            	//alert(emails[1]);
+            	document.getElementById("email1").value = emails[0];
+            	document.getElementById("email2").value = emails[1];
+
+            	myFormSubmit();
+            }else{
+            	alert('false');
+            	kakaoLogout();
+            }
           },
           fail: function (error) {
             console.log(error)
@@ -42,6 +59,7 @@ function kakaoLogin() {
       },
     })
   }
+  
 function kakaoLogout() {
     if (Kakao.Auth.getAccessToken()) {
       //토큰이 있으면
