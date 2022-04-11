@@ -12,6 +12,7 @@
 		<typeAlias type="memberDetail.model.MemberDetailBean" alias="MyMemberDetail"/>
 	</typeAliases>
 	<mappers>
+		<mapper resource="mybatis/bohum.xml" />
 		<mapper resource="mybatis/company.xml" />
 		<mapper resource="mybatis/qa_board.xml" />
 		<mapper resource="mybatis/member.xml" />

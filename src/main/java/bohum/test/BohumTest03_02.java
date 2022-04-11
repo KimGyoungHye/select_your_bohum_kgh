@@ -26,10 +26,10 @@ public class BohumTest03_02 {
     public static void main(String[] args) throws IOException {
         StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
         urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D"); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("100", "UTF-8")); /*�� ������ ��� ��*/
+        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("1000", "UTF-8")); /*�� ������ ��� ��*/
         urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*������ ��ȣ*/
         urlBuilder.append("&" + URLEncoder.encode("resultType","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*�������(xml/json)*/
-        urlBuilder.append("&" + URLEncoder.encode("age","UTF-8") + "=" + URLEncoder.encode("27", "UTF-8")); /*����*/       
+        urlBuilder.append("&" + URLEncoder.encode("age","UTF-8") + "=" + URLEncoder.encode("10", "UTF-8")); /*����*/       
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -60,14 +60,15 @@ public class BohumTest03_02 {
         	JSONObject jsonBody = (JSONObject)jsonResponse.get("body");
         	JSONObject jsonItems = (JSONObject)jsonBody.get("items");
         	JSONArray jsonItem = (JSONArray)jsonItems.get("item");
-        	System.out.println("basDt \t cmpyCd \t cmpyNm \t ptrn \t mog \t prdNm \t age \t mlInsRt \t fmlInsRt \t");
+        	System.out.println("갯수\tbasDt \t cmpyCd \t cmpyNm \t ptrn \t mog \t prdNm \t age \t mlInsRt \t fmlInsRt \t");
         	for(int i=0;i<jsonItem.size();i++) {
         		JSONObject item = (JSONObject)jsonItem.get(i);
+        		System.out.print(i+"\t");//YYYYMMDD ��������
         		System.out.print(item.get("basDt")+"\t");//YYYYMMDD ��������
         		System.out.print(item.get("cmpyCd")+"\t");// ȸ���ڵ�
         		System.out.print(item.get("cmpyNm")+"\t");// ȸ���
         		System.out.print(item.get("ptrn")+"\t");//	����
-        		System.out.print(item.get("mog")+"\t");// �㺸
+        		System.out.print("mog"+item.get("mog")+"\t");// �㺸
         		System.out.print(item.get("prdNm")+"\t");// ��ǰ��
         		System.out.print(item.get("age")+"\t");// ����
         		System.out.print(item.get("mlInsRt")+"\t");// ���ں����

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bohum.BohumBean">
+
+	<insert id="InsertBohum">
+ 		insert into bohum
+ 		values(bohum_seq.nextval,#{basDt},#{cmpyCd},#{cmpyNm},
+ 		#{ptrn},#{mog},#{age},#{prdNm},#{mlInsRt},#{fmlInsRt})
+ 	</insert>
+
+</mapper>
