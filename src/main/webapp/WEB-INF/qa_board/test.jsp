@@ -31,9 +31,11 @@
 
 
 
-<a href="bohumDetail.bh">bohumJujang.bh</a>
+<a href="bohumDetail.bh">그냥 테스트 용 없어도 됨</a>
+
+
+<a href="bohumChoochun.bh">내 보험 추천 하러 가기</a>
 
 
 
-
-<a href="bohumJujang.bh">bohumJujang.bh</a>
+<a href="bohumJujang.bh">보험 API 저장하러가기</a>

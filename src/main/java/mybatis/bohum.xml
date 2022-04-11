@@ -3,11 +3,32 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bohum.BohumBean">
-
 	<insert id="InsertBohum">
- 		insert into bohum
- 		values(bohum_seq.nextval,#{basDt},#{cmpyCd},#{cmpyNm},
- 		#{ptrn},#{mog},#{age},#{prdNm},#{mlInsRt},#{fmlInsRt})
- 	</insert>
+		insert into bohum
+		values(bohum_seq.nextval,#{basDt},#{cmpyCd},#{cmpyNm},
+		#{ptrn},#{mog},#{age},#{prdNm},#{mlInsRt},#{fmlInsRt})
+	</insert>
+
+
+	<select id="GetTotalCount" resultType="int">
+		select max(rnk)
+		from (select cmpyCd ,cmpyNm, ptrn ,age ,prdNm , rank() over(order by cmpyCd) as rnk
+		from bohum
+		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
+		having age=#{age})
+	</select>
+
+	<select id="GetBoteArr" resultType="MyBohumDetail">
+		select cmpyCd ,cmpyNm, ptrn ,age ,prdNm ,count(*) as mogCount
+		<if test="gender='여자'">
+			,sum(fmlInsRt) as priceSum
+		</if>
+		<if test="gender='남자'">
+			,sum(mlInsRt) as priceSum
+		</if>
+		from bohum
+		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
+		having age=#{age}
+	</select>
 
 </mapper>
