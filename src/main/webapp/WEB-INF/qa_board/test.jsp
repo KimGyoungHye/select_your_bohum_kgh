@@ -28,3 +28,5 @@
 
 
 <input type="button" onclick="downLoad('memo.txt')" value="ajax!!!">
+
+<a href="bohumDetail.bh">bohumDetail.bh</a>
