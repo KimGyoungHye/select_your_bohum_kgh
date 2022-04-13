@@ -50,8 +50,8 @@ public class MemberListController {
 		}
 		Responsing alerting = new Responsing(response);
 		Map<String, String> map = new HashMap<String, String>();
-		if(!loginInfo.getUserState().equals("°ü¸®ÀÚ")) {
-			alerting.useAlert("±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
+		if(!loginInfo.getUserState().equals("ê´€ë¦¬ì")) {
+			alerting.useAlert("ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.");
 			alerting.useRedirect("main.isp");
 		}
 		if(whatColumn!=null) {

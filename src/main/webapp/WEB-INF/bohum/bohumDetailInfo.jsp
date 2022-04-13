@@ -3,9 +3,13 @@
 <%@include file="/WEB-INF/top_bottom/main_top.jsp"%>
     
 bohum<br>
-<table>
-<c:forEach items="${bohumTestInfoArr }" varStatus="status" var="test">
+<table border="1" >
+<c:forEach items="${bohumDataDetailInfoArr }" varStatus="status" var="test">
 	<tr>
+		<td>${test.basDt }</td>
+		<td>${test.cmpyCd  }</td>
+		<td>${test.cmpyNm  }</td>
+		<td>${test.ptrn  }</td>
 		<td>${test.mog }</td>
 		<td>${test.mlInsRt }</td>
 		<td>${test.fmlInsRt }</td>

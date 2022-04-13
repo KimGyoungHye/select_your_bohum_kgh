@@ -6,6 +6,7 @@ public class BohumDetailBean {
 	String cmpyNm;
 	String ptrn;
 	String mog; 	 
+	String age; 	 
 	String prdNm;
 	String mlInsRt;
 	String fmlInsRt; 
@@ -15,7 +16,7 @@ public class BohumDetailBean {
 		super();
 	}
 	public BohumDetailBean(String basDt, String cmpyCd, String cmpyNm, String ptrn, String mog, String prdNm,
-			String mlInsRt, String fmlInsRt, String priceSum, String mogCount) {
+			String mlInsRt, String fmlInsRt, String priceSum, String mogCount,String age) {
 		super();
 		this.basDt = basDt;
 		this.cmpyCd = cmpyCd;
@@ -27,6 +28,7 @@ public class BohumDetailBean {
 		this.fmlInsRt = fmlInsRt;
 		this.priceSum = priceSum;
 		this.mogCount = mogCount;
+		this.age = age;
 	}
 	public String getBasDt() {
 		return basDt;
@@ -87,6 +89,12 @@ public class BohumDetailBean {
 	}
 	public void setMogCount(String mogCount) {
 		this.mogCount = mogCount;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
 	}
 	
 }

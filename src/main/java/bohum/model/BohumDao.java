@@ -37,4 +37,10 @@ public class BohumDao {
 		boteArr = sqlSessionTemplate.selectList(namespace+".GetBoteArr",bohumUserBean,rowBounds);
 		return boteArr;
 	}
+
+	public List<BohumTestBean> selectBohumDetail(BohumTestBean bohumTestBean) {
+		List<BohumTestBean> bohumDataDetailInfoArr = new ArrayList<BohumTestBean>();
+		bohumDataDetailInfoArr = sqlSessionTemplate.selectList(namespace+".GetBohumDataDetailInfo",bohumTestBean);
+		return bohumDataDetailInfoArr;
+	}
 }

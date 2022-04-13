@@ -61,6 +61,8 @@ public class Test01 {
 				out.write(buffer, 0, read);
 				System.out.println(read);
 			}
+			out.flush();
+			return;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

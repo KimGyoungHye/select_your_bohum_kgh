@@ -1,6 +1,7 @@
 package bohum.controller;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +34,8 @@ public class BohumDataJujangController {
 		BohumDetail bohumDetail = new BohumDetail();
 		ArrayList<BohumTestBean> bohumTestInfoArr = new ArrayList<BohumTestBean>();
 		int count = 0;
-		for(int j=1;j<102;j=j+10) {
+		bohumTestInfoArr = bohumDetail.getHohumDetail(String.valueOf(1));
+		for(int j=10;j<101;j=j+10) {
 			bohumTestInfoArr = bohumDetail.getHohumDetail(String.valueOf(j));
 			System.out.println("j"+j);
 			//한화 손보는 cinfo에서 무배당~은  insu에서 27은 loginInfo에서 추춮!!

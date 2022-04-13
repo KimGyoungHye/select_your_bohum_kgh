@@ -19,6 +19,8 @@ import bohum.model.BohumDao;
 import bohum.model.BohumDetail;
 import bohum.model.BohumUserBean;
 import bohum.test.BohumTestBean;
+import company.model.CompanyBean;
+import company.model.CompanyDao;
 import member.model.MemberBean;
 import memberDetail.model.MemberDetailBean;
 import memberDetail.model.MemberDetailDao;
@@ -37,6 +39,9 @@ public class BohumMyChoochunController {
 	
 	@Autowired
 	MemberDetailDao memberDetailDao;
+	
+//	@Autowired
+//	CompanyDao companyDao;
 	
 	@RequestMapping(value=command)
 	public String doAction(
@@ -63,26 +68,25 @@ public class BohumMyChoochunController {
 			session.setAttribute("myDetailNum", mDetailBean.getNum());
 		}else {
 			responsing.useConfirm("유저 세부 정보를 등록해야 이용 가능합니다.\n정보를 등록하시겠습니까?","myPage.mem");
-			
-		}
-		Map<String, String> map = new HashMap<String, String>();
-		if(whatColumn!=null) {
-			map.put("whatColumn", whatColumn);
-			map.put("keyword", "%"+keyword.toUpperCase()+"%");
-			System.out.println("keyword:"+"%"+keyword.toUpperCase()+"%");
 		}
 		//내 정보에서 뽑을 것 - age, gender-성별, 유병자인지 4대보험인지, 
 		// 지금 내 디테일 정보에서 그그그그그그 뭐냐 지병
 		// disease가 null이 아니면 유병자 보험 추천
 		// 아니면 그냥 4세대 실손 의료 보험
-		int age = mDetailBean.getAge();
+		int age = (int) Math.floor(mDetailBean.getAge());
+		System.out.println("age : "+age);
 		String gender = mDetailBean.getGender();
 		String disease = mDetailBean.getDisease();
 		int salary = mDetailBean.getSalary();
 		
+		//List<CompanyBean> companyList = companyDao.getCompanyList();
 		
-		BohumUserBean bohumUserBean = new BohumUserBean(age, gender, disease, salary, map);
-		bohumUserBean.setAge(31);
+		if(whatColumn==null)whatColumn="";
+		if(keyword==null)keyword="";			//처리 어떻게 하지..?
+		BohumUserBean bohumUserBean = new BohumUserBean(age, gender, disease, salary, whatColumn,"%"+keyword.toUpperCase()+"%");
+		//BohumUserBean bohumUserBean = new BohumUserBean(age, gender, disease, salary, whatColumn,"%"+keyword.toUpperCase()+"%",companyList);
+		
+		////////////////지금은 31 고정!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 		System.out.println("bohumUserBean.age : "+bohumUserBean.getAge());
 		//

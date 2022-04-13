@@ -1,28 +1,29 @@
 package bohum.model;
 
-import java.util.Map;
+import java.util.List;
 
-import member.model.MemberBean;
-import memberDetail.model.MemberDetailBean;
-import memberDetail.model.MemberDetailDao;
+import company.model.CompanyBean;
 
 public class BohumUserBean {
 	private int age;
 	private String gender;
 	private String disease;
 	private int salary;
-	private Map<String,String> map;
+	private String whatColumn;
+	private String keyword;
 	public BohumUserBean() {
 		super();
 	}
-	public BohumUserBean(int age, String gender, String disease, int salary, Map<String, String> map) {
+	public BohumUserBean(int age, String gender, String disease, int salary, String whatColumn, String keyword) {
 		super();
 		this.age = age;
 		this.gender = gender;
 		this.disease = disease;
 		this.salary = salary;
-		this.map = map;
+		this.whatColumn = whatColumn;
+		this.keyword = keyword;
 	}
+
 	public int getAge() {
 		return age;
 	}
@@ -35,7 +36,7 @@ public class BohumUserBean {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String isDisease() {
+	public String getDisease() {
 		return disease;
 	}
 	public void setDisease(String disease) {
@@ -47,10 +48,16 @@ public class BohumUserBean {
 	public void setSalary(int salary) {
 		this.salary = salary;
 	}
-	public Map<String, String> getMap() {
-		return map;
+	public String getWhatColumn() {
+		return whatColumn;
 	}
-	public void setMap(Map<String, String> map) {
-		this.map = map;
+	public void setWhatColumn(String whatColumn) {
+		this.whatColumn = whatColumn;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 }

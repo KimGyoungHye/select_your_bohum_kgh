@@ -12,23 +12,31 @@
 
 	<select id="GetTotalCount" resultType="int">
 		select max(rnk)
-		from (select cmpyCd ,cmpyNm, ptrn ,age ,prdNm , rank() over(order by cmpyCd) as rnk
-		from bohum
+		from (select cmpyCd ,cmpyNm, ptrn ,bohum.age age ,prdNm , rank() over(order by cmpyCd) as rnk
+		from bohum inner join cinfo
+		on cmpyNm = cname
 		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
 		having age=#{age})
+		
 	</select>
 
 	<select id="GetBoteArr" resultType="MyBohumDetail">
-		select cmpyCd ,cmpyNm, ptrn ,age ,prdNm ,count(*) as mogCount
+		select cmpyCd ,cmpyNm, ptrn ,bohum.age age ,prdNm ,count(*) as mogCount
 		<if test="gender='여자'">
 			,sum(fmlInsRt) as priceSum
 		</if>
 		<if test="gender='남자'">
 			,sum(mlInsRt) as priceSum
 		</if>
-		from bohum
+		from bohum inner join cinfo
+		on cmpyNm = cname
 		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
 		having age=#{age}
+	</select>
+	
+	<select id="GetBohumDataDetailInfo" resultType="MyBohumDetail">
+		select * from bohum
+		where cmpyNm=#{cmpyNm} and ptrn=#{ptrn} and prdNm=#{prdNm} and age=#{age}
 	</select>
 
 </mapper>

@@ -6,6 +6,37 @@ bohumChoochun<br>
 일단 나이를 31로 고정했어요!!!!!!!!!!!!!!!!!!!!!!!!!!!범위지정하게요!!<br>
 아직 유병자인지 아닌지는 안적용했어요!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
 보험료는 등록된 사람의 성별로 분류!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>
+
+
+<% 
+	String[] whatColumnArr = {"전체 검색","회사이름","보험이름","특약정보"};
+	String[] whatColumnValArr = {"all","id","userState","companyInfo"};
+%>
+<c:set value="<%=whatColumnArr%>" var="whatColumnArr" />
+<c:set value="<%=whatColumnValArr%>" var="whatColumnValArr" />
+<div class="row">
+	<div class="col-md-offset-1 col-md-10 checkContainer">
+		<form action="memberList.mem" method="post">
+			<div class="col-md-2 checkContainer">
+				<select name="whatColumn" class="form-control">
+					<c:forEach var="i" begin="0" end="${fn:length(whatColumnArr)-1}" step="1">
+						<option value="${whatColumnValArr[i] }" 
+						<c:if test="${whatColumn==whatColumnValArr[i] }">
+							selected
+						</c:if>
+						>${whatColumnArr[i] }
+					</c:forEach>
+				</select>
+			</div>
+			<div class="col-md-5 checkContainer">
+				<input name="keyword" value="${keyword }" class="form-control">
+			</div>
+			<div class="col-md-2 checkContainer">
+				<input type="submit" value="검색" class="form-control btn btn-primary ">
+			</div>
+		</form>
+	</div>
+</div>
 <table border="1">
 	<tr>
 		<td>회사코드</td>
@@ -21,7 +52,11 @@ bohumChoochun<br>
 		<td>${test.cmpyCd }</td>
 		<td>${test.cmpyNm }</td>
 		<td>${test.ptrn }</td>
-		<td>${test.prdNm }</td>
+		<td>
+			<a href="bohumDataDetail.bh?cmpyNm=${test.cmpyNm }&ptrn=${test.ptrn }&prdNm=${test.prdNm }&age=${test.age }">
+				${test.prdNm }
+			</a>
+		</td>
 		<td>${test.priceSum }</td>
 		<td>${test.mogCount }</td>
 	</tr>
