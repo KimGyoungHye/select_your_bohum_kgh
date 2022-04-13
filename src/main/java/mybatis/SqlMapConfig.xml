@@ -19,5 +19,6 @@
 		<mapper resource="mybatis/qa_board.xml" />
 		<mapper resource="mybatis/member.xml" />
 		<mapper resource="mybatis/memberDetail.xml" />
+		<mapper resource="mybatis/graph.xml" />
 	</mappers>
 </configuration>

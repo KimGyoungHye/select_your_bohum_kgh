@@ -60,7 +60,16 @@
     </div>
     <div class="row">
       <div class="col-md-6"><a href="test.qa">다운로드 테스트용</a></div>
-      <div class="col-md-6">.col-md-6</div>
+      <div class="col-md-6"><a href="graphTest.gp">그래프 테스트용</a></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"><a href="canvusTest.gp">캔버스 테스트용</a></div>
+      <div class="col-md-6"><a href="canvusTest01.gp">캔버스 테스트용01</a></div>
+    </div>
+    
+     <div class="row">
+      <div class="col-md-6"><a href="canvusTest02.gp">캔버스 테스트용02</a></div>
+      <div class="col-md-6"><a href="canvusTest03.gp">캔버스 테스트용03</a></div>
     </div>
   </div>
   
