@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bohum.model.BohumDao;
+import bohum.model.BohumDataBean;
 import bohum.model.BohumDetail;
 import bohum.model.BohumUserBean;
-import bohum.test.BohumTestBean;
 import company.model.CompanyBean;
 import company.model.CompanyDao;
 import member.model.MemberBean;
@@ -55,7 +55,7 @@ public class BohumMyChoochunController {
 		
 		Responsing responsing = new Responsing(response);
 		BohumDetail bohumDetail = new BohumDetail();
-		List<BohumTestBean> bohumTestInfoArr = new ArrayList<BohumTestBean>();
+		List<BohumDataBean> bohumTestInfoArr = new ArrayList<BohumDataBean>();
 		//한화 손보는 cinfo에서 무배당~은  insu에서 27은 loginInfo에서 추춮!!
 		
 		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
@@ -73,7 +73,7 @@ public class BohumMyChoochunController {
 		// 지금 내 디테일 정보에서 그그그그그그 뭐냐 지병
 		// disease가 null이 아니면 유병자 보험 추천
 		// 아니면 그냥 4세대 실손 의료 보험
-		int age = (int) Math.floor(mDetailBean.getAge());
+		int age = (int) Math.floor((mDetailBean.getAge()/10)*10);
 		System.out.println("age : "+age);
 		String gender = mDetailBean.getGender();
 		String disease = mDetailBean.getDisease();

@@ -4,67 +4,69 @@
 
 <%@ include file="/WEB-INF/company/top.jsp"%>
 
-<script type="text/javascript">
+<%@include file="/WEB-INF/common/common_graph.jsp"%>
 
-/* 	alert(2);
-	const canvas = $('#myCanvas');
-	alert("canvas.id\n\n"+canvas.attr('id')); */
-	
-	function Click(hi11) {
-		
-		var hi = $('#hi');
-		alert("hi\n\n"+hi.val());	
-		
-		var hi01 = $('input[name=hi]');
-		alert("hi01\n\n"+hi01.val());	
-		
-		var hi02 = $("input[name='hi']");
-		alert("hi02\n\n"+hi02.val());	
-		
-		
-		var hi03 = document.getElementById("hi");
-		alert("hi03\n\n"+hi03.value);	
-		
-		
-		alert(hi11);
-		
-		alert("hi\n\n"+hi11.value);	
-		alert("hi\n\n"+hi11.getAttribute('id'));	
+<script>
+	function getAgeData() {
+		alert(1);
+		$.ajax({
+			url : "test.gp",
+		    dataType : "json", //서버에서 html타입을 반환받는다.
+		    contentType: "application/json; charset=utf-8",
+		    success : function(data) {
+		    	$.each(data, function(index, item) { // 데이터 =item
+					alert('in');
+					alert(item.myLabels);
+					alert(item.myLabel);
+					alert(item.myData);
+					alert(item.myText);
+					
+					myLabels = item.myLabels;
+					myLabel = item.myLabel;
+					myData = item.myData;
+					myText = item.myText;
+					alert('last');
+
+drawBarGraph(myLabels, myLabel, myData,myText);
+				});
+				alert('out');
+				
+		    },//success
+			error : function(data) {
+				alert('error! : ' + data.value);
+			}//success
+		});
+/* 		$.ajax({
+			url : "test.gp",
+			dataType : 'json',
+            contentType: 'application/json; charset=utf-8',
+			success : function(data) {
+				alert("success : " + data);
+				$.each(data, function(index, item) { // 데이터 =item
+					alert('in');
+					drawBarGraph(item.myLabels, item.myLabel, item.myData,
+							item.myText);
+				});
+				alert('out');
+			},//success
+			error : function(data) {
+				alert('error! : ' + data.value);
+			}//success
+		});//ajax */
+		alert(4);
 	}
-	
-$(document).ready(convasSet);
-	
-	function convasSet() {
-		
-		const canvas = $('#myChart');
-	    alert(10);
-	    alert(canvas.attr('id'));
-	    if(canvas.getContext){
-		    var ctx = canvas.getContext('2d');
-		    ctx.fillStyle = 'red';
-		    alert(3);
-		    ctx.fillRect(10, 10, 100, 100);
-		    alert(4);
-		}else{
-			alert("canvas.getContext : "+canvas.getContext);
-	    }
-	    alert(2);
-		
-	}
-	
 </script>
 
+<h1>바 그래프</h1>
+<div id="barDiv">
+	<canvas id="bar-chart" width="900" height="380"></canvas>
+</div>
 
+<input type="button" value="그리기01" onclick="drawBarGraph01()">
+<br>
+<input type="button" value="그리기" onclick="getAgeData()">
+<br>
 
-
-
-<canvas id="myCanvas" width="150" height="150"></canvas>
-<input id="hi" name="hi" value="하이!" onclick="Click(this)">
-	<h1>여기가 그래프 시작</h1>
-	<div>
-		<canvas id="myChart" width="900" height="380"></canvas>
-	</div>
-	<h1>여기가 그래프 끝</h1>
 <%@ include file="/WEB-INF/company/bottom.jsp"%>
 
 <%@include file="/WEB-INF/top_bottom/main_bottom.jsp"%>

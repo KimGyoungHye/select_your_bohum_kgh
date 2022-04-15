@@ -38,4 +38,4 @@
 
 
 
-<a href="bohumJujang.bh">보험 API 저장하러가기</a>
+<a href="bohumJujang.ha">보험 API 저장하러가기</a>

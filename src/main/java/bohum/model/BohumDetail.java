@@ -14,16 +14,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import bohum.test.BohumTestBean;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class BohumDetail {
 	
-	public ArrayList<BohumTestBean> getHohumDetail(String age) {
-		ArrayList<BohumTestBean> bohumTestInfoArr = new ArrayList<BohumTestBean>();
+	public ArrayList<BohumDataBean> getHohumDetail(String age) {
+		ArrayList<BohumDataBean> bohumTestInfoArr = new ArrayList<BohumDataBean>();
 		try {
 			StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
 			urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D");
@@ -83,7 +81,7 @@ public class BohumDetail {
 				String mlInsRt = (String)item.get("mlInsRt");
 				String fmlInsRt = (String)item.get("fmlInsRt");
 				
-				BohumTestBean bohumTestBean = new BohumTestBean(basDt, cmpyCd, cmpyNm, ptrn, mog, prdNm, age, mlInsRt, fmlInsRt);
+				BohumDataBean bohumTestBean = new BohumDataBean(basDt, cmpyCd, cmpyNm, ptrn, mog, prdNm, age, mlInsRt, fmlInsRt);
 				bohumTestInfoArr.add(bohumTestBean);
 			}
 		} catch (ParseException e) {
@@ -106,8 +104,8 @@ public class BohumDetail {
 	}//getHohumDetail
 	
 	
-	public ArrayList<BohumTestBean> getHohumDetail(String cmpyNm ,String prdNm,String age) {
-		ArrayList<BohumTestBean> bohumTestInfoArr = new ArrayList<BohumTestBean>();
+	public ArrayList<BohumDataBean> getHohumDetail(String cmpyNm ,String prdNm,String age) {
+		ArrayList<BohumDataBean> bohumTestInfoArr = new ArrayList<BohumDataBean>();
 		try {
 			StringBuilder urlBuilder = new StringBuilder("http://apis.data.go.kr/1160100/service/GetMedicalReimbursementInsuranceInfoService/getInsuranceInfo"); /*URL*/
 			urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=wKQumq5LX0aGJN19E3mLdne0GDiEtPtVpVY3tDVBkOYPc21sBxDu%2B4lUggPaO0ETQboYKIVcYuGsd5lxtqhYoQ%3D%3D");
@@ -167,7 +165,7 @@ public class BohumDetail {
 				String mlInsRt = (String)item.get("mlInsRt");
 				String fmlInsRt = (String)item.get("fmlInsRt");
 				
-				BohumTestBean bohumTestBean = new BohumTestBean(basDt, cmpyCd, cmpyNm, ptrn, mog, prdNm, age, mlInsRt, fmlInsRt);
+				BohumDataBean bohumTestBean = new BohumDataBean(basDt, cmpyCd, cmpyNm, ptrn, mog, prdNm, age, mlInsRt, fmlInsRt);
 				bohumTestInfoArr.add(bohumTestBean);
 			}
 		} catch (ParseException e) {

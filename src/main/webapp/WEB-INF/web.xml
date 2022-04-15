@@ -170,4 +170,19 @@
 		<servlet-name>graph</servlet-name>
 		<url-pattern>*.gp</url-pattern>
 	</servlet-mapping>
+	
+			<servlet>
+		<servlet-name>homeAdmin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/homeAdmin-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>homeAdmin</servlet-name>
+		<url-pattern>*.ha</url-pattern>
+	</servlet-mapping>
 </web-app>

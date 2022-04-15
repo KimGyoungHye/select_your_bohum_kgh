@@ -44,8 +44,10 @@ public class MemberDao {
 		cnt = sqlSessionTemplate.update(namespace+".UserStateUpdate",memberBean);
 		return cnt;
 	}
+	
+	
 
-	//ÀÌ¸§,ÁÖ¹Î¹øÈ£·Î idÃ£±â
+	//ï¿½Ì¸ï¿½,ï¿½Ö¹Î¹ï¿½È£ï¿½ï¿½ idÃ£ï¿½ï¿½
 	public String getIdByNameRrn(MemberBean member) {
 		String id = sqlSessionTemplate.selectOne(namespace+".GetIdByName", member);
 		System.out.println("ID:"+id);

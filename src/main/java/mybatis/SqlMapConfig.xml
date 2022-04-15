@@ -10,8 +10,9 @@
 		<typeAlias type="qa_board.model.QA_BoardBean" alias="MyQA_Board"/>
 		<typeAlias type="member.model.MemberBean" alias="MyMember"/>
 		<typeAlias type="memberDetail.model.MemberDetailBean" alias="MyMemberDetail"/>
-		<typeAlias type="bohum.test.BohumTestBean" alias="MyBohumTest"/>
+		<typeAlias type="bohum.model.BohumDataBean" alias="MyBohumTest"/>
 		<typeAlias type="bohum.model.BohumDetailBean" alias="MyBohumDetail"/>
+		<typeAlias type="graph.model.GraphBean" alias="MyGraph"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/bohum.xml" />
@@ -20,5 +21,6 @@
 		<mapper resource="mybatis/member.xml" />
 		<mapper resource="mybatis/memberDetail.xml" />
 		<mapper resource="mybatis/graph.xml" />
+		<mapper resource="mybatis/homeAdmin.xml" />
 	</mappers>
 </configuration>

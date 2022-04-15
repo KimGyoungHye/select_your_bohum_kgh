@@ -9,7 +9,14 @@
 		#{ptrn},#{mog},#{age},#{prdNm},#{mlInsRt},#{fmlInsRt})
 	</insert>
 
-
+	<select id="GetAllTotalCount" resultType="int">
+		select max(rnk)
+		from (select cmpyCd ,cmpyNm, ptrn ,bohum.age age ,prdNm , rank() over(order by cmpyCd) as rnk
+		from bohum inner join cinfo
+		on cmpyNm = cname
+		group by cmpyCd,cmpyNm, ptrn , age ,prdNm)
+	</select>
+	
 	<select id="GetTotalCount" resultType="int">
 		select max(rnk)
 		from (select cmpyCd ,cmpyNm, ptrn ,bohum.age age ,prdNm , rank() over(order by cmpyCd) as rnk
@@ -17,7 +24,6 @@
 		on cmpyNm = cname
 		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
 		having age=#{age})
-		
 	</select>
 
 	<select id="GetBoteArr" resultType="MyBohumDetail">
@@ -32,6 +38,13 @@
 		on cmpyNm = cname
 		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
 		having age=#{age}
+	</select>
+	
+	<select id="GetAllBoteArr" resultType="MyBohumDetail">
+		select cmpyCd ,cmpyNm, ptrn ,bohum.age age ,prdNm , rank() over(order by cmpyCd) as rnk
+		from bohum inner join cinfo
+		on cmpyNm = cname
+		group by cmpyCd,cmpyNm, ptrn , age ,prdNm
 	</select>
 	
 	<select id="GetBohumDataDetailInfo" resultType="MyBohumDetail">

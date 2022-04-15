@@ -28,7 +28,7 @@ $(document).ready(convasSet);
 		canvasCtx.fillStyle = 'red';
 		for(var i=0;i<9;i++){
 			
-		    canvasCtx.fillRect(i*60, 0, 50, 50*(i+1));
+		    canvasCtx.fillRect(i*60, 380-50*(i+1), 50, 50*(i+1));
 		}
 	}
 	

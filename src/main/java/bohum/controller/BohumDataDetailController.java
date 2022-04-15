@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bohum.model.BohumDao;
+import bohum.model.BohumDataBean;
 import bohum.model.BohumDetail;
-import bohum.test.BohumTestBean;
 import member.model.MemberBean;
 import utility.Responsing;
 
@@ -30,12 +30,12 @@ public class BohumDataDetailController {
 	BohumDao bohumDao;
 	
 	@RequestMapping(value=command)
-	public String doAction(BohumTestBean bohumTestBean,
+	public String doAction(BohumDataBean bohumTestBean,
 			HttpServletRequest request,
 			HttpSession session) {
 		//cmpyNm=${test.cmpyNm }&ptrn=${test.ptrn }&prdNm=${test.prdNm }
 		System.out.println("(bohumTestBean.getCmpyNm()"+bohumTestBean.getCmpyNm());
-		List<BohumTestBean> bohumDataDetailInfoArr = bohumDao.selectBohumDetail(bohumTestBean);
+		List<BohumDataBean> bohumDataDetailInfoArr = bohumDao.selectBohumDetail(bohumTestBean);
 		
 		request.setAttribute("bohumDataDetailInfoArr",bohumDataDetailInfoArr);
 		

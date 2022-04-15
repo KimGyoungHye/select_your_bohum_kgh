@@ -1,19 +1,19 @@
-package bohum.test;
+package bohum.model;
 
-public class BohumTestBean {
-	private String basDt;		//YYYYMMDD ±âÁØÀÏÀÚ
-	private String cmpyCd;		// È¸»çÄÚµå
-	private String cmpyNm;		// È¸»ç¸í
-	private String ptrn;		//	À¯Çü
-	private String mog;			// ´ãº¸
-	private String prdNm;		// »óÇ°¸í
-	private String age;			// ¿¬·É
-	private String mlInsRt;		// ³²ÀÚº¸Çè·á
-	private String fmlInsRt;	// ¿©ÀÚº¸Çè·á
-	public BohumTestBean() {
+public class BohumDataBean {
+	private String basDt;		//YYYYMMDD ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String cmpyCd;		// È¸ï¿½ï¿½ï¿½Úµï¿½
+	private String cmpyNm;		// È¸ï¿½ï¿½ï¿½
+	private String ptrn;		//	ï¿½ï¿½ï¿½ï¿½
+	private String mog;			// ï¿½ãº¸
+	private String prdNm;		// ï¿½ï¿½Ç°ï¿½ï¿½
+	private String age;			// ï¿½ï¿½ï¿½ï¿½
+	private String mlInsRt;		// ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½
+	private String fmlInsRt;	// ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½
+	public BohumDataBean() {
 		super();
 	}
-	public BohumTestBean(String basDt, String cmpyCd, String cmpyNm, String ptrn, String mog, String prdNm, String age,
+	public BohumDataBean(String basDt, String cmpyCd, String cmpyNm, String ptrn, String mog, String prdNm, String age,
 			String mlInsRt, String fmlInsRt) {
 		super();
 		this.basDt = basDt;

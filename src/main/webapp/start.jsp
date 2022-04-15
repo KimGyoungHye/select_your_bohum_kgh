@@ -69,7 +69,7 @@
     
      <div class="row">
       <div class="col-md-6"><a href="canvusTest02.gp">캔버스 테스트용02</a></div>
-      <div class="col-md-6"><a href="canvusTest03.gp">캔버스 테스트용03</a></div>
+      <div class="col-md-6"><a href="canvusTest04.gp">캔버스 테스트용04</a></div>
     </div>
   </div>
   
