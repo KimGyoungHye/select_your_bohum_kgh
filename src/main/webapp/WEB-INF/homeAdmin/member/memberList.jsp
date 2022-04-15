@@ -66,7 +66,7 @@
 						<button class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal${member.id}">
 						사용자 정보 변경하기  
 						</button>
-<%@include file="/WEB-INF/member/admin/memberUserStateUpdate.jsp"%>
+<%@include file="/WEB-INF/homeAdmin/member/memberUserStateUpdate.jsp"%>
 					</td>
 				<tr>
 			</c:forEach>

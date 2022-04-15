@@ -4,14 +4,19 @@
     
 bohum<br>
 <table>
-<c:forEach items="${bohumTestInfoArr }" varStatus="status" var="test">
+<c:forEach items="${bohumJujangInfoArr }" varStatus="status" var="jujang">
 	<tr>
-		<td>${test.mog }</td>
-		<td>${test.mlInsRt }</td>
-		<td>${test.fmlInsRt }</td>
+		<td>${jujang.cmpyCd }</td>
+		<td>${jujang.cmpyNm }</td>
+		<td>${jujang.ptrn }</td>
+		<td>${jujang.age }</td>
+		<td>${jujang.prdNm }</td>
 	</tr>
 </c:forEach>
 </table>
+
+<br> ${pageInfo.pagingHtml}
+
 <%@include file="/WEB-INF/top_bottom/main_bottom.jsp"%>
 
 

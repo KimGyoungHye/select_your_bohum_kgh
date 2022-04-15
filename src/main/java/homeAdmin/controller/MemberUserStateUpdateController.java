@@ -1,4 +1,4 @@
-package member.controller;
+package homeAdmin.controller;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,8 +13,8 @@ import utility.Responsing;
 
 @Controller
 public class MemberUserStateUpdateController {
-	private final String command = "/userStateUpdate.mem";
-	private String getPage = "redirect:memberList.mem";
+	private final String command = "/userStateUpdate.ha";
+	private String getPage = "redirect:memberList.ha";
 	
 	@Autowired
 	MemberDao memberDao;
@@ -25,13 +25,13 @@ public class MemberUserStateUpdateController {
 		int cnt = memberDao.userStateUpdate(memberBean);
 		Responsing responsing = new Responsing(response);
 		if(cnt>0) {
-			responsing.useAlert("¼öÁ¤ ¼º°ø");			
-			responsing.useRedirect("memberList.mem");
+			responsing.useAlert("ìˆ˜ì • ì„±ê³µ");			
+			responsing.useRedirect("memberList.ha");
 		}else {
-			responsing.useAlert("¼öÁ¤ ½ÇÆÐ");
-			responsing.useRedirect("memberList.mem");
+			responsing.useAlert("ìˆ˜ì • ì‹¤íŒ¨");
+			responsing.useRedirect("memberList.ha");
 		}
-		responsing.useRedirect("memberList.mem");
+		responsing.useRedirect("memberList.ha");
 		return getPage;
 	}
 }

@@ -1,4 +1,4 @@
-package member.controller;
+package homeAdmin.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -23,14 +23,15 @@ import member.model.MemberDao;
 import memberDetail.model.MemberDetailBean;
 import memberDetail.model.MemberDetailDao;
 import utility.Responsing;
+import utility.UserKindClassify;
 import utility.Paging;
 
 @Controller
 public class MemberListController {
-	private final String command = "/memberList.mem";
-	private String getPage = "/admin/memberList";
+	private final String command = "/memberList.ha";
+	private String getPage = "/member/memberList";
 	private String loginPage = "redirect:login.mem";
-	private String mainPage = "redirect:main.isp";
+	private String mainPage = "redirect:main.mem";
 
 	@Autowired
 	private MemberDao memberDao;
@@ -43,17 +44,14 @@ public class MemberListController {
 			HttpSession session,
 			HttpServletRequest request,
 			HttpServletResponse response) {
-		MemberBean loginInfo = (MemberBean)session.getAttribute("loginInfo");
-		if(loginInfo==null) {
-			session.setAttribute("destination", "redirect:/memberList.mem");
-			return loginPage;
-		}
-		Responsing alerting = new Responsing(response);
+		
+		//관리자 구분
+		UserKindClassify classify = new UserKindClassify();
+		classify.areYouAdmin(session, response, "redirect:memberList.ha");
+		
+		
 		Map<String, String> map = new HashMap<String, String>();
-		if(!loginInfo.getUserState().equals("관리자")) {
-			alerting.useAlert("권한이 없습니다.");
-			alerting.useRedirect("main.isp");
-		}
+		
 		if(whatColumn!=null) {
 			map.put("whatColumn", whatColumn);
 			map.put("keyword", "%"+keyword.toUpperCase()+"%");

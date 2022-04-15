@@ -9,7 +9,7 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel"> 회원 아이디 [ ${member.id} ]</h4>
       </div>
-      <form method="post" action="userStateUpdate.mem">
+      <form method="post" action="userStateUpdate.ha">
       
       <div class="modal-body">
       <p>여기에 뭘 써야 할까?</p>
